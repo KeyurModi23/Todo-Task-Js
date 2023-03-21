@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo Task</title>
+</head>
+
+<body onload="viewData()">
+    <div class="top_header">Todo List App</div>
+    <div class="container">
+        <form id="myForm" action="" onsubmit="return false;">
+            <div class="table_form">
+                <div class="form_bar">Add New Task</div>
+                <div class="form_wrap">
+                    <div class="input_wrap">
+                        <div class="label">
+                            <label>Title<span class="required">* </span></label>
+                        </div>
+                        <div class="input_field">
+                            <input type="text" name="title" id="title" placeholder="Enter Title" required>
+                            <div class="error_msg" id="errorMsg"></div>
+                        </div>
+                    </div>
+                    <div class="input_wrap">
+                        <div class="label">
+                            <label>Description</label>
+                        </div>
+                        <div class="input_field">
+                            <textarea id="description" name="description" rows="6" cols="100"
+                                placeholder="Enter Description"></textarea>
+                        </div>
+                    </div>
+                    <div id="cardStatus">
+                        <div class="input_wrap">
+                            <div class="label">
+                                <label>Status<span class="required">* </span></label>
+                            </div>
+                            <div class="input_field">
+                                <select name="status" id="status">
+                                    <option value="backlog" selected>BackLog</option>
+                                    <option value="inprogress">In Progress</option>
+                                    <option value="review">Review</option>
+                                    <option value="completed">Completed</option>
+                                </select>
+                                <div class="error_msg" id="statusError"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn_wrap">
+                        <input type="button" class="btn_primary" name="add" id="add" value="Add Task"
+                            onclick="onFormSubmit()">
+                        <input type="button" class="btn_primary" name="del" id="del" value="Clear" onclick="onClear()">
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div class="table_form">
+            <div class="form_bar">
+                <span class="task_title">Task List</span>
+                <span class="right_wrap">
+                    <input type="text" id="searchbar" name="searchbar" placeholder="Search..." autocomplete="off">
+                    <input type="button" class="btn_primary" name="search" id="search" value="Search"
+                        onclick="searchFunction()">
+                    <input type="button" class="btn_primary" name="clear" id="clear" value="Clear Search"
+                        onclick="clearSearch()">
+                </span>
+            </div>
+            <div class="form_wrap">
+                <div class="card_wrap">
+                    <div class="card card1">
+                        <div class="card_bar">Backlog</div>
+                        <div id="cardbar_wrap1" class="cardbar_wrap"></div>
+                    </div>
+                    <div class="card card2">
+                        <div class="card_bar">In Progress</div>
+                        <div id="cardbar_wrap2" class="cardbar_wrap"></div>
+                    </div>
+                    <div class="card card3">
+                        <div class="card_bar">Review</div>
+                        <div id="cardbar_wrap3" class="cardbar_wrap"></div>
+                    </div>
+                    <div class="card card4">
+                        <div class="card_bar">Completed</div>
+                        <div id="cardbar_wrap4" class="cardbar_wrap"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
